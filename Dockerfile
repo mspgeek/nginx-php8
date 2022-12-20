@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM php:8.0-alpine:latest
 
 RUN apk update && apk upgrade
 RUN apk add bash
@@ -11,7 +11,6 @@ COPY server/etc/php /etc/php8
 COPY src /usr/share/nginx/html
 RUN mkdir /var/run/php
 EXPOSE 80
-EXPOSE 443
 
 STOPSIGNAL SIGTERM
 
