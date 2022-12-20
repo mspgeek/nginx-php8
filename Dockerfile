@@ -3,7 +3,7 @@ FROM php:8.0-alpine:latest
 RUN apk update && apk upgrade
 RUN apk add bash
 RUN apk add nginx
-RUN apk add php8 php8-fpm php8-opcache
+RUN apk add php8-opcache
 RUN apk add php8-gd php8-zlib php8-curl
 
 COPY server/etc/nginx /etc/nginx
