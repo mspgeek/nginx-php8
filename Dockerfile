@@ -10,6 +10,11 @@ COPY server/etc/nginx /etc/nginx
 COPY server/etc/php /etc/php8
 COPY src /usr/share/nginx/html
 RUN mkdir /var/run/php
+RUN chmod 0777 /usr/share/nginx/html/applications
+RUN chmod 0777 /usr/share/nginx/html/datastore
+RUN chmod 0777 /usr/share/nginx/html/plugins
+RUN chmod 0777 /usr/share/nginx/html/uploads
+RUN chmod 0777 /usr/share/nginx/html/uploads/logs
 EXPOSE 80
 
 STOPSIGNAL SIGTERM
