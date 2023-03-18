@@ -8,11 +8,12 @@ COPY server/etc /etc
 COPY src /usr/share/nginx/html
 
 RUN mkdir /var/run/php && \
+    mkdir -p /usr/share/nginx/html/applications /usr/share/nginx/html/datastore /usr/share/nginx/html/plugins /usr/share/nginx/html/uploads/logs && \
     echo "* * * * * /usr/bin/php -d memory_limit=-1 -d max_execution_time=0 /usr/share/nginx/html/applications/core/interface/task/task.php fb05731ced1c5f8ddecb7a9719df7c94" >> /var/spool/cron/crontabs/root
 
 WORKDIR /usr/share/nginx/html
 
-RUN chmod -R 777 /usr/share/nginx/html/applications /usr/share/nginx/html/datastore /usr/share/nginx/html/plugins /usr/share/nginx/html/uploads /usr/share/nginx/html/uploads/logs
+ONBUILD RUN chmod -R 777 /usr/share/nginx/html/applications /usr/share/nginx/html/datastore /usr/share/nginx/html/plugins /usr/share/nginx/html/uploads /usr/share/nginx/html/uploads/logs
 
 EXPOSE 80
 
