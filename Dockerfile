@@ -11,6 +11,8 @@ COPY server/etc/nginx /etc/nginx
 COPY server/etc/php /etc/php8
 COPY src /usr/share/nginx/html
 RUN mkdir /var/run/php
+RUN echo "* * * * * /usr/bin/php -d memory_limit=-1 -d max_execution_time=0 /usr/share/nginx/html/applications/core/interface/task/task.php fb05731ced1c5f8ddecb7a9719df7c94" >> /var/spool/cron/crontabs/root
+
 ONBUILD RUN chmod 0777 /usr/share/nginx/html/applications
 ONBUILD RUN chmod 0777 /usr/share/nginx/html/datastore
 ONBUILD RUN chmod 0777 /usr/share/nginx/html/plugins
