@@ -13,7 +13,7 @@ RUN mkdir /var/run/php && \
 
 WORKDIR /usr/share/nginx/html
 
-ONBUILD RUN chmod -R 777 /usr/share/nginx/html/applications /usr/share/nginx/html/datastore /usr/share/nginx/html/plugins /usr/share/nginx/html/uploads /usr/share/nginx/html/uploads/logs
+RUN chmod -R 777 /usr/share/nginx/html/applications /usr/share/nginx/html/datastore /usr/share/nginx/html/plugins /usr/share/nginx/html/uploads /usr/share/nginx/html/uploads/logs
 
 EXPOSE 80
 
