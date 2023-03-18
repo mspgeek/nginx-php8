@@ -20,4 +20,4 @@ EXPOSE 80
 
 STOPSIGNAL SIGTERM
 
-CMD ["/bin/bash", "-c", "php-fpm8 && chmod 777 /var/run/php/php8-fpm.sock && chmod 755 /usr/share/nginx/html/* && nginx -g 'daemon off;'"]
+CMD ["/bin/bash", "-c", "php-fpm8 && chmod 777 /var/run/php/php8-fpm.sock && nginx -g 'daemon off;'"]
